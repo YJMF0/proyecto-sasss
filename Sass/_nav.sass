@@ -2,155 +2,164 @@
 
 @import "./_variables"
 
-@media only screen and (max-width: 768px)
+@mixin display-center($display, $alinear, $justificar, $text)
+    display: $display
+    align-items: $alinear
+    justify-content: $justificar
+    text-align: $text 
 
-    @mixin display-center($display, $alinear, $justificar, $text)
-       display: $display
-       align-items: $alinear
-       justify-content: $justificar
-       text-align: $text 
+@mixin img($alto, $ancho, $radius)
+    height: $alto
+    width: $ancho
+    border-radius: $radius
 
-    @mixin img($alto, $ancho, $radius)
-        height: $alto
-        width: $ancho
-        border-radius: $radius
+@mixin grid($grid, $template, $justificar, $column)
+    display: $grid
+    grid-template-rows: $template
+    justify-content: $justificar 
+    grid-template-columns: $column
 
-    @mixin grid($grid, $template, $justificar, $column)
-        display: $grid
-        grid-template-rows: $template
-        justify-content: $justificar 
-        grid-template-columns: $column
+@mixin iconos($bg, $bg-color: #fff, $radius, $bordertrans, $text-color: #fff, $font-size)
+    background: $bg
+    background-color: $bg-color
+    border-radius: $radius
+    border: $bordertrans
+    color: $text-color
+    font-size: 27px
 
-    @mixin iconos($bg, $bg-color: #fff, $radius, $bordertrans, $text-color: #fff)
-        background: $bg
-        background-color: $bg-color
-        border-radius: $radius
-        border: $bordertrans
-        color: $text-color
+*
+    padding: 10px
+    margin: 0px
+
+html
+    background-color: #335064
+    background-size: cover
+    -moz-background-size: cover
+    -webkit-background-size: cover
+    -o-background-size: cover
+    font-family: 'Roboto', sans-serif
+
+body
+    border: 2px #fff solid
+    border-radius: 20px
+    background-color: #fff
+    opacity: 93%
+    background-size: cover
+
+.img-main
+    @include display-center($display, null, $justificar, null)
+
+#img-main
+    @include img(250px, 300px, null)
+    border-radius: 100px
+    border: 5px #000 solid
+
+.titulo
+    @include display-center($display, null, $justificar, null)
     
-    *
-        padding: 10px
-        margin: 0px
+#titulo
+    @include display-center(null, null, null, $text)
+    font-weight: 400
+    font-size: 55px
+
+.sub-titulo
+    @include display-center($display, null, $justificar, null)
+
+#css
+    color: blue
+
+#html
+    color: orange
+
+#sass
+    color: pink
+
+#info
+    @include display-center(null, null, null, $text)
+    font-weight: 600
+    font-size: 20px
+
+.franja-proyecto
+    background-color: #8d8888
+
+#franja-proyecto
+    @include display-center($display, $alinear, $justificar, $text)
+    font-size: 20px
+
+.proyectos
+    @include grid($grid, $template, $justificar, null)    
+
+.proyectouno
+    @include display-center(none, null, $justificar, $text)
+    flex-direction: column
+.proyectodos
+    @include display-center(none, null, $justificar, $text)
+    flex-direction: column
+
+.proyectotres
+    @include display-center(none, null, $justificar, $text)
+    flex-direction: column
+
+.proyectounoimg
+    @include display-center(none, null, $justificar, null)
+    @include img(80%, 80%, null)      
+
+.more
+    @include grid($grid, 10% 10%, null, null)
+
+.tres-barras
+    @include display-center($display, null, $justificar, null)
+    cursor: pointer
+
+.text-pro
+    @include display-center(none, null, null, null)
+
+.franja-redes
+    background-color: #8d8888
+
+#franja-redes
+    @include display-center($display, $alinear, $justificar, $text)
+    font-size: 32px
+
+.contacto
+    @include grid($grid, null, $justificar, $column)
     
-    html
-        background: url(./../recursos/images.jpg) no-repeat center center fixed
-        background-size: cover
-        -moz-background-size: cover
-        -webkit-background-size: cover
-        -o-background-size: cover
-        font-family: 'Martian Mono', monospace
 
-    body
-        border: 2px #fff solid
-        border-radius: 20px
-        background-color: #fff
-        opacity: 93%
-        background-size: cover
-
-    .logo
-        @include display-center($display, null, $justificar, null)
-        padding: 12px 0px
-
-    #logo
-        @include img(90px, 150px, null)
-        border-radius: 50px
-        border: 1px #000 transparent
-
-    .img-main
-        @include display-center($display, null, $justificar, null)
+#formulario
+    background: none
+    @include img(null, 100%, $radius)
+    @include display-center($display, null, null, null)
     
-    #img-main
-        @include img(250px, 300px, null)
-        border-radius: 100px
-        border: 5px #000 solid
+.formulario
+    @include grid($grid, 50% 50%, $justificar, null)
     
-    .titulo
-        @include display-center($display, null, $justificar, null)
-        
-    #titulo
-        @include display-center(null, null, null, $text)
-        font-weight: 400
+.input-main
+    @include display-center($display, $alinear, null, null)
+    flex-direction: column
+    gap: 10px
 
-    .sub-titulo
-        @include display-center($display, null, $justificar, null)
-
-    #info
-        @include display-center(null, null, null, $text)
-        font-weight: 600
+.enviar
+    @include img(null, 50%, $radius)
+    @include display-center($display, $alinear, $justificar, $text)
     
-    .proyectos
-        @include grid($grid, $template, $justificar, null)    
+
+.redes
+    @include grid($grid, null, space-between, repeat(3,33%))
+    @include display-center(null, $alinear, $justificar, $text)
+    padding: 10px 0px
+    gap: 20px
+
+#ws
+    @include iconos($bg, null, $radius, $bordertrans, #615f5f, $font-size)
+    cursor: pointer
     
-    .proyectouno
-        @include display-center(none, null, $justificar, $text)
-        flex-direction: column
-    .proyectodos
-       @include display-center(none, null, $justificar, $text)
-       flex-direction: column
+#ig
+    @include iconos($bg, null, $radius, $bordertrans, #615f5f, $font-size)
+    cursor: pointer
 
-    .proyectotres
-        @include display-center(none, null, $justificar, $text)
-        flex-direction: column
-
-    .proyectounoimg
-        @include display-center(none, null, $justificar, null)
-        @include img(80%, 80%, null)      
-    
-    .more
-        @include grid($grid, 10% 10%, null, null)
-
-    .tres-barras
-        @include display-center($display, null, $justificar, null)
-        cursor: pointer
-
-    .text-pro
-        @include display-center(null, null, null, $text)
-        font-weight: 400
-
-    .contacto
-        @include grid($grid, null, $justificar, $column)
-        
-
-    #formulario
-        background: none
-        @include img(null, 100%, $radius)
-        @include display-center($display, null, null, null)
-        
-    .formulario
-        @include grid($grid, 50% 50%, $justificar, null)
-        
-    .imput-main
-        @include display-center($display, null, null, null)
-        gap: 3px
-    
-    .enviar
-        @include img(null, 112%, $radius)
-
-    .redes
-        @include grid($grid, null, space-between, repeat(3,33%))
-        @include display-center(null, $alinear, $justificar, $text)
-        padding: 10px 0px
-        gap: 20px
-    
-    .ws
-        font-size: 30px
-    
-    .ig
-        font-size: 30px
-
-    .git
-        font-size: 30px
-    #ws
-        @include iconos($bg, #7ce37c, $radius, $bordertrans, $text-color)
-        cursor: pointer
-        
-    #ig
-        @include iconos($bg, #ec3cc6, $radius, $bordertrans, $text-color)
-        background: linear-gradient(16deg, #ec3cc6 0%, #f9d305 25%, #d075f2 60%, #eb41ee 100%)
-        cursor: pointer
-    #git
-        @include iconos($bg, #3f0a52, $radius, $bordertrans, $text-color)
-        cursor: pointer
+#git
+    @include iconos($bg, null, $radius, $bordertrans, #615f5f, $font-size)
+    cursor: pointer
 
 
      
@@ -174,24 +183,25 @@
         justify-content: $justificar 
         grid-template-columns: $column
 
-    @mixin iconos($bg, $bg-color: #fff, $radius, $bordertrans, $text-color: #fff)
+    @mixin iconos($bg, $bg-color: #fff, $radius, $bordertrans, $text-color: #fff, $font-size)
         background: $bg
         background-color: $bg-color
         border-radius: $radius
         border: $bordertrans
         color: $text-color
+        font-size: $font-size
     
     *
         padding: 10px
         margin: 0px
     
-    html
-        background: url(./../recursos/images.jpg) no-repeat center center fixed
+    html        
+        background-color: #335064
         background-size: cover
         -moz-background-size: cover
         -webkit-background-size: cover
         -o-background-size: cover
-        font-family: 'Martian Mono', monospace
+        font-family: 'Roboto', sans-serif
 
     body
         border: 2px #fff solid
@@ -200,49 +210,61 @@
         opacity: 93%
         background-size: cover
     
-    .logo
-        @include display-center($display, null, right, null)
-        padding: 4px 40px
-
-    #logo
-        @include img(90px, 150px, null)
-        border-radius: 50px
-        border: 1px #000 transparent
-    
     .container
-        @include grid($grid, null, null, 60% 40%)
-        padding: 25px 0px 
+        @include grid($grid, null, null, 50% 50%)
+        padding: 10px 0px 
 
     .informacion
-        @include grid($grid, 50% 50%, null, null)
-
+        @include display-center($display, $alinear, $justificar, null)
+        flex-direction: column
+        height: 90vh
+      
     .img-main
-        @include display-center($display, null, $justificar, null)
+        @include display-center($display, $alinear, $justificar, null)
     
     #img-main
-        @include img(250px, 400px, null)
-        border-radius: 100px
+        @include img(250px, 400px, 100px)
         border: 5px #000 solid
     
     .titulo
-        @include display-center($display, null, $justificar, null)
-        padding: 30px 0px
+        @include display-center($display, $alinear, flex-start, null)
+        width: 100%
         
     #titulo
         font-weight: 400
+        font-size: 60px  
+        text-align: left      
 
-    .sub-titulo
-        @include display-center($display, null, $justificar, null)
+    #css
+        color: blue
+
+    #html
+        color: orange
+
+    #sass
+        color: pink            
 
     #info
         font-weight: 600
-    
+        font-size: 27px
+        text-align: left
+
+    .franja-proyecto
+        background-color: #8d8888
+
+    #franja-proyecto
+        @include display-center($display, $alinear, $justificar, $text)
+        font-size: 32px
+
     .proyectos
         @include grid($grid, null, space-between, repeat(3, 33%))    
-    
+        height: 92vh
+        font-size: 32px
+
     .proyectouno
         @include display-center($display, null, $justificar, $text)
         flex-direction: column
+
     .proyectodos
        @include display-center($display, null, $justificar, $text)
        flex-direction: column
@@ -253,9 +275,8 @@
 
     .proyectounoimg
         @include display-center($display, null, $justificar, null)
-        @include img(80%, 80%, null)
-        cursor: pointer
-        
+        @include img(20%, 80%, null)
+        cursor: pointer    
     
     .more
         @include grid(none, null, null, null)
@@ -266,52 +287,50 @@
     .text-pro
         @include display-center(none, null, null, null)
 
+    .franja-redes
+        background-color: #8d8888
+
+    #franja-redes
+        @include display-center($display, $alinear, $justificar, $text)
+        font-size: 32px
+    
     .contacto
-        @include display-center($display, null, null, null)
-        flex-direction: column
+        height: 70vh        
+
+    .formulario
+        padding: 6% 0px        
 
     #formulario
-        @include img(null, 80%, $radius)
         background: none
-    
-    .formulario
-        @include display-center($display, $alinear, space-around, null)
-        
-    .imput-main
-        @include display-center($display, $alinear, null, null)
+
+    .input-main
+        @include display-center($display, $alinear, $justificar, null)
         flex-direction: column
-        gap: 3px
+        @include img(40px , 90%, $radius)  
+        gap: 20px
     
     .enviar
-        @include img(null, 85%, $radius)
+        @include img(40px, 90%, $radius)
        
-    
     .redes
-        @include grid($grid, null, space-between, repeat(3,33%))
-        @include display-center(null, $alinear, null, $text)
-        padding: 10px 0px
-        gap: 12px
+        @include grid($grid, null, $justificar, repeat(3,33%))
+        @include display-center(null, null, null, $text)
+        padding: 0px
     
-    .ws
-        font-size: 30px
-    
-    .ig
-        font-size: 30px
-
-    .git
-        font-size: 30px
     #ws
-        @include iconos($bg, #7ce37c, $radius, $bordertrans, $text-color)
+        @include iconos($bg, null, $radius, $bordertrans, #615f5f, $font-size)
         cursor: pointer
+
         
     #ig
-        @include iconos($bg, #ec3cc6, $radius, $bordertrans, $text-color)
-        background: linear-gradient(16deg, #ec3cc6 0%, #f9d305 25%, #d075f2 60%, #eb41ee 100%)
+        @include iconos($bg, null, $radius, $bordertrans, #615f5f, $font-size)
         cursor: pointer
 
+
     #git
-        @include iconos($bg, #3f0a52, $radius, $bordertrans, $text-color)
+        @include iconos($bg, null, $radius, $bordertrans, #615f5f, $font-size)
         cursor: pointer
+
 
     
 
